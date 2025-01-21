@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+
+    /* CORES ANTIGAS
+    --cor-fundo: #352F44;
+    --cor-primaria: #FAF0E6;
+    --cor-secundaria: #5C5470;
+    --cor-hover: #B9B4C7;
+    --fonte-principal: "Roboto", sans-serif;
+    --cor-link:#7c65b6; */
+
+    --cor-fundo: #030203;
+    --cor-primaria: #F5ECE6;
+    --cor-secundaria: #4C845A;
+    --cor-hover: #74BC99;
+    --fonte-principal: "Roboto", sans-serif;
+    --cor-link:#49527D;
+    --cor-fundo-modal: #f5ece6ea;
+
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: var(--cor-fundo);
+}
+
+.principal {
+    background-image: url("../img/banner.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: auto 300px;
+}
+
+.container__titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container__titulo h1 {
+    font-size: 70px;
+    text-align: center;
+    color: var(--cor-primaria);
+    margin: 2em 0 0 0;
+    text-shadow: 0.1em 0.1em 0.2em #000000;
+}
+
+.container__descricao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0px 5px 0px 5px;
+    max-width: 1024px;
+    color: var(--cor-primaria);
+    font-weight: 300;
+}
+
+#container__descricao-paragrafo p {
+    text-shadow: 0.1em 0.1em 0.2em #000000;
+}
+
+.container__pesquisa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.container__pesquisa-select {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__pesquisa-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1024px;
+}
+
+.search-option {
+    margin-left: 1em;
+    margin-right: 0.5em;
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: var(--cor-primaria);
+    border: none;
+    color: var(--cor-fundo);
+}
+
+.search-option-select {
+    padding: 7.3px;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    background-color: var(--cor-primaria);
+    border: none;
+    color: var(--cor-fundo);
+}
+
+.search-option-select:focus {
+    border-radius: 5px 5px 0px 0px;
+}
+
+/* alterar a cor do pesquisar preenchido */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-text-fill-color: var(--cor-fundo);
+    -webkit-box-shadow: 0 0 0px 1000px var(--cor-primaria) inset;
+}
+
+.button-search {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+    border: none;
+    margin-right: 1em;
+}
+
+.button-search:hover {
+    background-color: var(--cor-hover);
+    color: var(--cor-secundaria)
+}
+
+.button-search:active {
+    background-color: gray;
+    color: var(--cor-primaria);
+}
+
+
+#results {
+    max-width: 1024px;
+    margin: 0 auto;
+    margin-top: 1.3em;
+}
+
+/* Estilo para o contêiner de resultados */
+.grid-container {
+    display: grid;
+    padding-left: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(262px, 1fr)); /* Grade responsiva */
+    gap: 10px; /* Espaçamento entre os itens */
+}
+
+/* Estilo para cada item na grade */
+.grid-item {
+    overflow: hidden; /* Evita que a imagem ultrapasse o contêiner */
+}
+
+/* Estilo para a imagem de capa */
+.grid-item img {
+    /*width: 100%;
+    height: auto; */
+    max-height: 375px;
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
+    border-radius: 10px;
+}
+
+/* Estilo para a imagem de capa ao passar sobre ela */
+.grid-item img:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente a escala da imagem */
+}
+
+/* Estilo para o modal */
+.modal {
+    display: none; /* Inicia oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    z-index: 9999; /* Garante que o modal fique acima de outros elementos */
+    overflow: auto;
+    padding-top: 60px; /* Espaçamento no topo para a barra de navegação */
+}
+
+/* Estilo para o conteúdo do modal */
+.modal-content {
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: var(--cor-fundo-modal);
+    color: var(--cor-fundo);
+    margin: 10% auto; /* Centraliza vertical e horizontalmente */
+    padding: 20px;
+    border: 1px solid var(--cor-fundo-modal);
+    width: 80%; /* Largura do conteúdo do modal */
+    
+}
+
+.modal-content ul {
+    list-style-type: none;
+    margin-right: 30px;
+}
+
+.modal-content h2 {
+    text-align: center;
+}
+
+.modal-content ul {
+    border-radius: 5px;
+}
+
+.modal-content li {
+    padding: 10px;
+    background-color: #5c54706c;
+}
+
+
+
+.modal-content a {
+    text-decoration: none;
+    color: var(--cor-link);
+}
+
+.modal-content a:hover {
+    color: var(--cor-fundo);
+}
+
+#gray-hover {
+    background-color: #b9b4c765;
+}
+
+.border-up {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.border-bottom {
+    border-radius: 0px 0px 5px 5px;
+}
+
+/* Estilo para o botão fechar do modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 671px) {
+
+    h1 {
+        padding: 0px 5px 0px 5px;
+    }
+
+    .container__titulo h1 {
+        font-size: 35px;
+    }
+
+    .container__descricao {
+        text-align: center;
+    }
+
+    .container__pesquisa-input {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-option {
+        margin: 0 0px 10px 0px;
+        width: 330px;
+
+    }
+
+    .search-option-select {
+        width: 330px;
+        margin: 0 0px 10px 0px;
+    }
+
+    .button-search {
+        margin: 0 0px 10px 0px;
+        width: 330px;
+    }
+
+}
+
+/* @media (max-width: 768px) {
+    .container__cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    }
+
+
+}
+
+@media (max-width: 574px) {
+    .container__cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}/*

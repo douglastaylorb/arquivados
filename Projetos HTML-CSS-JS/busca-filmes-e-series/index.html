@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Finder</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png"/>
+</head>
+<body>
+    <main class="principal">
+        <section class="container__titulo">
+            <h1>Streaming Finder</h1>
+        </section>
+        <section class="container__descricao">
+            <div id="container__descricao-paragrafo">
+            <p>Descubra em qual plataforma de streaming seu filme ou série favorita está disponível.</p>
+            </div>
+        </section>
+        <section class="container__pesquisa">
+            <div class="container__pesquisa-input">
+                <input class="search-option" type="text" id="searchInput" autocomplete="off" placeholder="Digite a série ou filme">
+                
+                <div class="container__pesquisa-select">
+                    <div class="container__pesquisa-tipo">
+                        <select class="search-option-select" id="typeSelect">
+                            <option value="all">Selecione um tipo</option>
+                            <option value="movie">Filme</option>
+                            <option value="series">Série</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="container__pesquisa-streaming">
+                    <select class="search-option-select" id="streamingSelect">
+                        <option value="netflix,prime.subscription,hbo,hulu.addon.hbo,prime.addon.hbomaxus,apple.addon">Selecione um Streaming</option>
+                        <option value="netflix">Netflix</option>
+                        <option value="prime.subscription">Amazon Prime</option>
+                        <option value="hbo,hulu.addon.hbo,prime.addon.hbomaxus">Max</option>
+                        <option value="apple.addon">Apple TV</option>
+                    </select>
+                </div>
+                <button class="button-search" onclick="search()">Pesquisar</button>
+            </div>
+        </section>
+        
+        <div id="results"></div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content" id="modalContent">
+            </div>
+        </div>
+    </main>
+    <script src="app/script.js"></script>
+</body>
+</html>
